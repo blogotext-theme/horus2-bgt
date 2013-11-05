@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<title>{blog_nom}</title>
+	<meta name="generator" content="BlogoText" />
+	<meta name="robots" content="all" />
+	<meta name="author" content="{blog_auteur}" />
+	<meta name="description" content="{blog_description}" />
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="viewport" content="width=device-width">
+	<meta name="keywords" content="{keywords}" />
+	<link rel="icon" type="image/png" href="{style}/images/favicon.png" />
+	<link rel="image_src" href="{style}/images/apple-touch-icon.png" />
+	<link rel="apple-touch-icon" href="{style}/images/apple-touch-icon.png" />
+	<link rel="canonical" href="{racine_du_site}" />
+	<link rel="apple-touch-icon" href="{style}/images/apple-touch-icon.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="{style}/images/apple-touch-icon114x114.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="{style}/images/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="{style}/images/apple-touch-icon-144x144.png">
+	<meta itemprop="name" content="{article_titre}" />
+	<meta itemprop="description" content="{article_chapo}" />
+	<meta itemprop="image" content="{style}/images/apple-touch-icon.png">
+	<meta property="og:title" content="{blog_nom}" />
+	<meta property="og:url" content="{racine_du_site}" />
+	<meta property="og:description" content="{blog_description}" />
+	<meta property="og:site_name" content="{blog_nom}" />
+	<meta property="og:locale" content="fr_FR" />
+	<meta property="og:image" content="{style}/images/apple-touch-icon.png" />
+	<link rel="stylesheet" type="text/css" href="{style}/css/skin/default/style.css">
+	<link type="text/css" rel="stylesheet" href="{style}/style.css" />
+	<!-- RTL Style --><!--link rel="stylesheet" href="{style}/css/rtl.css"-->
+	<link type="application/rss+xml" rel="alternate" title="RSS 2.0 - Articles" href="{rss}" />
+	<!--[if lt IE 9]>
+		<script type="text/javascript" src="{style}/js/html5shiv-respond.min.js"></script>
+	<![endif]-->
+</head>
+<body>
+        <!--[if lt IE 9]>
+            <p class="chromeframe">Votre navigateur internet n'est plus à jour. <a href="http://browsehappy.com/" title="Mettez à jour votre navigateur" rel="external">Mettez à jour votre navigateur aujourd'hui</a> ou <a href="http://www.google.com/chromeframe/?redirect=true" title="install Google Chrome Frame" rel="external">installez le plugin Google Chrome Frame</a> pour une meilleur navigation sur ce site.</p>
+        <![endif]-->
+	<div class="wrapper">
+		<header id="top" class="col-12">
+			<div><a id="top-link" href="#top" title="Haut de page"></a></div>
+			<div id="top_text">
+				<h1><a href="{racine_du_site}" title="{blog_nom}">{blog_nom}</a></h1>
+				<h2>{blog_description}</h2>
+			</div>
+			<div class="topmenu">
+				<form id="tabletmenu" action="#" method="post">
+					<select>
+						<option value="">Navigation</option>
+						<option value="index.php">Accueil</option>
+						<option value="index.php?mode=links">Liens</option>
+						<option value="index.php?mode=comments">Derniers commentaires</option>
+						<option value="?random">Un article au hasard !</option>
+						<option value="rss.php">Fil Rss du Blog</option>
+						<option value="rss.php?full">Fil Rss complet du Blog</option>
+					</select>
+				</form>
+			</div>
+		</header>
+		<div class="row grids"> 
+			<section id="contenu" class="col-9">
+				{BOUCLE_posts}
+					// ici il s'affichera ce qu'on veut : un article, un commentaire, un lien sauvé…
+					// les thèmes pour ces choses sont dans le dossier "template"
+					// chaque "objet" (lien, article, …) dispose de son propre formatage. 
+					// **** le texte que vous mettez ici (dans la "boucle") ne sera pas éxécuté ni affiché. ****
+				{/BOUCLE_posts}
+				
+				<br class="clear" />
+				{pagination}
+			</section>
+			<aside id="sidebar" class="col-3">
+				<nav id="recherche">
+					<h3><i class="fa fa-search"></i>  Recherche</h3>
+					{recherche}
+					<hr/>
+				</nav>
+				<nav id="navigate">
+					<h3><i class="fa fa-calendar"></i>  Calendrier</h3>
+					{calendrier}
+					<hr/>
+				</nav>
+				<nav id="last_comments">
+					<h3><i class="fa fa-comments"></i>  Derniers commentaires</h3>
+					{commentaires_encart}
+					<hr/>
+				</nav>
+				<nav id="tags" class="tagcloud">
+					<h3><i class="fa fa-tags"></i>  Tags</h3>
+					{categories_encart}
+					<hr/>
+				</nav>
+				<nav id="liens">
+					<h3><i class="fa fa-hand-o-right"></i>  Autres</h3>
+					<ul>
+						<li><a href="index.php" title="Blog">Blog</a></li>
+						<li><a href="index.php?mode=links" title="Liens">Liens</a></li>
+						<li><a href="index.php?mode=comments" title="Derniers commentaires">Derniers commentaires</a></li>
+					</ul>
+					<hr/>
+				</nav>
+				<nav id="random">
+					<h3><i class="fa fa-random"></i>  Un article au hasard</h3>
+						<ul>
+							<li><a href="?random" title="Un article au hasard ?">Un article au hasard ?</a></li>
+						</ul>
+					<hr/>
+				</nav>
+				<nav id="rss">
+					<h3><i class="fa fa-rss"></i>  Fils RSS</h3>
+					<ul>
+						<li><a href="rss.php" title="RSS Blog" rel="external">RSS : Blog</a></li>
+						<li><a href="rss.php?full" title="RSS Blog (articles complets)" rel="external">RSS : Blog (articles complets)</a></li>
+					</ul>
+					<hr/>
+				</nav>
+			</aside>
+		</div>
+		<footer id="footer" class="col-12">
+			<div id="copyright"><b>{blog_auteur}</b>, tout droits réservés – Publié avec <a href="http://lehollandaisvolant.net/blogotext/" title=" Site officiel de BlogoText" rel="external"><i class="fa fa-external-link"></i> BlogoText</a> – Thème par <a href="http://www.xoofoo.org" title="Site internet de Kris" rel="external"><i class="fa fa-external-link"></i> Kris</a></div>
+			<div id="social-box">
+				<a class="bulbe" href="https://www.facebook.com/pages/#" title="Page Facebook" rel="external"><i class="fa fa-facebook"></i></a>
+				<a class="bulbe" href="https://twitter.com/{blog_auteur}" title="Nous suivre sur Twitter" rel="external"><i class="fa fa-twitter"></i></a>
+				<a class="bulbe" href="http://gplus.to/{blog_auteur}" title="Nous ajouter dans vos cercles" rel="external"><i class="fa fa-google-plus"></i></a>
+				<a class="bulbe" href="https://about.me/{blog_auteur}" title="About.Me" rel="external"><i class="fa fa-smile-o"></i></a>
+				<a class="bulbe" href="rss.php?full" title="RSS Blog Articles" rel="external"><i class="fa fa-rss"></i></a>
+			</div>
+		</footer>
+	</div>
+<script type="text/javascript" src="{style}/js/jquery.js"></script>
+<script type="text/javascript" src="{style}/js/fokus.min.js" async></script>
+<script type="text/javascript" src="{style}/js/monjsamoi.js"></script>
+</body>
+</html>
