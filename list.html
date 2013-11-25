@@ -44,22 +44,19 @@
 		<header id="top" class="col-12">
 			<div><a id="top-link" href="#top" title="Haut de page"></a></div>
 			<div id="top_text">
-				<h1><a href="{racine_du_site}" title="{blog_nom}">{blog_nom}</a></h1>
+				<h1><a href="{racine_du_site}" title="{blog_nom} - {blog_description}">{blog_nom}</a></h1>
 				<h2>{blog_description}</h2>
 			</div>
-			<div class="topmenu">
-				<form id="tabletmenu" action="#" method="post">
-					<select>
-						<option value="">Navigation</option>
-						<option value="index.php">Accueil</option>
-						<option value="index.php?mode=links">Liens</option>
-						<option value="index.php?mode=comments">Derniers commentaires</option>
-						<option value="?random">Un article au hasard !</option>
-						<option value="rss.php">Fil Rss du Blog</option>
-						<option value="rss.php?full">Fil Rss complet du Blog</option>
-					</select>
-				</form>
-			</div>
+			<nav class="navbar left">
+				<ul>
+					<li class="current"><a href="index.php">Menu</a></li>
+					<li><a href="index.php?mode=links">Liens</a></li>
+					<li><a href="index.php?mode=comments">Derniers commentaires</a></li>
+					<li><a href="?random">Un article au hasard !</a></li>
+					<li><a href="rss.php">Fil Rss du Blog</a></li>
+					<li><a href="rss.php?full">Fil Rss complet du Blog</a></li>
+				</ul>
+			</nav>
 		</header>
 		<div class="row grids"> 
 			<section id="contenu" class="col-9">
